@@ -16,36 +16,35 @@
 </script>
 
 <div>
-	<div class="container">
+	<div class="text-center mb-5">
 		{#if data.user}
-			<p class="welcome-message">Welcome back, {data.user.username}!</p>
+			<p class="text-green-600 text-lg">Welcome back, {data.user.username}!</p>
 
-			<div class="button-container">
-			<form action="/logout?/logout" method="POST">
-				<button type="submit" class="btn">Logout</button>
-			</form>
-			<form action="/logout?/deleteAcc" method="POST">
-				<button type="submit" class="btn btn-danger">Delete Account</button>
-			</form>
+			<div class="flex justify-center gap-3 mt-4">
+				<form action="/logout?/logout" method="POST">
+					<button type="submit" class="bg-blue-500 text-white px-5 py-2 text-lg rounded hover:bg-blue-700">Logout</button>
+				</form>
+				<form action="/logout?/deleteAcc" method="POST">
+					<button type="submit" class="bg-red-600 text-white px-5 py-2 text-lg rounded hover:bg-red-800">Delete Account</button>
+				</form>
 			</div>
 		{:else}
-			<p class="login-message">
+			<p class="text-orange-600 text-base">
 				You are not logged in.
-				<a href="/login" class="login-link">Login</a>
+				<a href="/login" class="text-blue-500 font-bold hover:underline">Login</a>
 				or
-				<a href="/register" class="login-link">Register</a>
+				<a href="/register" class="text-blue-500 font-bold hover:underline">Register</a>
 			</p>
 		{/if}
 	</div>
 </div>
 
-<h1 class="events-title">My Event App</h1>
+<h1 class="text-4xl text-center text-gray-800 mb-4">My Event App</h1>
+<p class="text-center text-gray-600 mb-6 text-lg">Explore events by category or see them all at once.</p>
 
-<p class="events-description">Explore events by category or see them all at once.</p>
-
-<div class="filter-container">
-	<label for="category-filter" class="filter-label">Choose a category:</label>
-	<select id="category-filter" bind:value={selectedCategory} onchange={filterEvents}>
+<div class="text-center mb-8">
+	<label for="category-filter" class="text-gray-800 text-base mr-2">Choose a category:</label>
+	<select id="category-filter" bind:value={selectedCategory} onchange={filterEvents} class="px-3 py-2 text-base border border-gray-300 rounded cursor-pointer focus:border-blue-500">
 		<option value="all">All</option>
 		{#each data.categories as category}
 			<option value={category}>{category.name}</option>
@@ -53,154 +52,18 @@
 	</select>
 </div>
 
-<div class="events-container">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
 	{#if filteredEvents.length > 0}
 		{#each filteredEvents as event (event.id)}
-			<div animate:flip class="event-card">
-				<p class="event-details">
-					<strong>ID:</strong>
-					{event.id} |
-					<strong>Title:</strong>
-					{event.title} |
-					<strong>Start Date:</strong>
-					{new Date(event.start_date).toDateString()}
+			<div class="bg-white rounded-lg p-4 shadow-lg transition-transform transform hover:-translate-y-1">
+				<p class="text-gray-700 text-base">
+					<strong class="text-gray-900">ID:</strong> {event.id} |
+					<strong class="text-gray-900">Title:</strong> {event.title} |
+					<strong class="text-gray-900">Start Date:</strong> {new Date(event.start_date).toDateString()}
 				</p>
 			</div>
 		{/each}
 	{:else}
-		<p class="no-events-message">No events available in this category.</p>
+		<p class="text-lg text-gray-500 text-center mt-5">No events available in this category.</p>
 	{/if}
 </div>
-
-<style>
-	.container {
-		text-align: center;
-		margin-bottom: 20px;
-	}
-
-	.welcome-message {
-		color: #4caf50;
-		font-size: 1.2em;
-	}
-
-	.login-message {
-		color: #ff5722;
-		font-size: 1em;
-	}
-
-	.login-link {
-		color: #007bff;
-		text-decoration: none;
-		font-weight: bold;
-	}
-
-	.login-link:hover {
-		text-decoration: underline;
-	}
-
-	.events-title {
-		font-size: 2.5em;
-		margin-bottom: 15px;
-		text-align: center;
-		color: #333;
-	}
-
-	.events-description {
-		text-align: center;
-		color: #555;
-		margin-bottom: 25px;
-		font-size: 1.2em;
-	}
-
-	.filter-container {
-		text-align: center;
-		margin-bottom: 30px;
-	}
-
-	.filter-label {
-		font-size: 1em;
-		margin-right: 10px;
-		color: #333;
-	}
-
-	select {
-		padding: 8px 12px;
-		font-size: 1em;
-		border: 1px solid #ddd;
-		border-radius: 5px;
-		outline: none;
-		cursor: pointer;
-	}
-
-	select:focus {
-		border-color: #007bff;
-	}
-
-	.events-container {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 20px;
-		max-width: 1000px;
-		margin: 0 auto;
-	}
-
-	.event-card {
-		background: #fff;
-		border-radius: 10px;
-		padding: 15px;
-		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-		transition: transform 0.3s ease;
-	}
-
-	.event-card:hover {
-		transform: translateY(-5px);
-	}
-
-	.event-details {
-		font-size: 1em;
-		color: #444;
-	}
-
-	.event-details strong {
-		font-weight: bold;
-		color: #333;
-	}
-
-	.no-events-message {
-		font-size: 1.2em;
-		color: #888;
-		margin-top: 20px;
-		text-align: center;
-	}
-
-	.btn {
-		background-color: #007bff;
-		color: #fff;
-		border: none;
-		padding: 10px 20px;
-		font-size: 16px;
-		border-radius: 5px;
-		cursor: pointer;
-		display: inline-block;
-		margin: 5px;
-	}
-
-	.btn:hover {
-		background-color: #0056b3;
-	}
-
-	.btn-danger {
-		background-color: #dc3545;
-	}
-
-	.btn-danger:hover {
-		background-color: #b02a37;
-	}
-
-	.button-container {
-		display: flex;
-		justify-content: center;
-		gap: 10px;
-		margin-top: 15px;
-	}
-</style>

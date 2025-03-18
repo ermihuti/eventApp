@@ -4,98 +4,29 @@
 	export let form;
 </script>
 
-<div class="register-container">
-	<form action="?/register" method="POST" use:enhance class="register-form">
-		<h1 class="form-title">Register</h1>
+<div class="flex justify-center items-center h-screen bg-gray-100">
+	<form action="?/register" method="POST" use:enhance class="bg-white rounded-lg p-6 shadow-md max-w-sm w-full flex flex-col gap-4">
+		<h1 class="text-2xl mb-4 text-center text-gray-800">Register</h1>
 
-		<div class="form-group">
-			<label for="email">E-Mail</label>
-			<input type="text" name="email" id="email" required />
+		<div class="flex flex-col gap-1">
+			<label for="email" class="text-sm text-gray-600">E-Mail</label>
+			<input type="text" name="email" id="email" required class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500" />
 		</div>
 
-		<div class="form-group">
-			<label for="username">Username</label>
-			<input type="text" name="username" id="username" required />
+		<div class="flex flex-col gap-1">
+			<label for="username" class="text-sm text-gray-600">Username</label>
+			<input type="text" name="username" id="username" required class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500" />
 		</div>
 
-		<div class="form-group">
-			<label for="password">Password</label>
-			<input type="password" name="password" id="password" required />
+		<div class="flex flex-col gap-1">
+			<label for="password" class="text-sm text-gray-600">Password</label>
+			<input type="password" name="password" id="password" required class="p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500" />
 		</div>
 
-		<button type="submit" class="btn-primary">Register</button>
+		<button type="submit" class="bg-blue-500 text-white border-none p-2 text-base rounded-md cursor-pointer transition hover:bg-blue-700 text-center">Register</button>
 
 		{#if form}
 			<Warning message={form.message} />
 		{/if}
 	</form>
 </div>
-
-<style>
-	.register-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-		background-color: #f5f5f5;
-	}
-
-	.register-form {
-		background: #fff;
-		border-radius: 10px;
-		padding: 20px;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-		max-width: 400px;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		gap: 15px;
-	}
-
-	.form-title {
-		font-size: 24px;
-		margin-bottom: 20px;
-		text-align: center;
-		color: #333;
-	}
-
-	.form-group {
-		display: flex;
-		flex-direction: column;
-		gap: 5px;
-	}
-
-	.form-group label {
-		font-size: 14px;
-		color: #555;
-	}
-
-	.form-group input {
-		padding: 10px;
-		border: 1px solid #ccc;
-		border-radius: 5px;
-		font-size: 14px;
-		transition: border-color 0.3s ease;
-	}
-
-	.form-group input:focus {
-		border-color: #007bff;
-		outline: none;
-	}
-
-	.btn-primary {
-		background-color: #007bff;
-		color: #fff;
-		border: none;
-		padding: 10px 15px;
-		font-size: 16px;
-		border-radius: 5px;
-		cursor: pointer;
-		transition: background-color 0.3s ease;
-		text-align: center;
-	}
-
-	.btn-primary:hover {
-		background-color: #0056b3;
-	}
-</style>
