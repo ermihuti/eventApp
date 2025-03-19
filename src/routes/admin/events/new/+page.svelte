@@ -2,7 +2,7 @@
 	let { data } = $props();
 </script>
 
-<h1 class="text-2xl mb-5 text-center text-gray-800">Create a New Event</h1>
+<h1 class="text-2xl mb-5 font-bold text-center text-gray-800">Create a New Event</h1>
 
 <form method="POST" action="?/createEvent" class="bg-white rounded-lg p-6 shadow-md max-w-md mx-auto">
 	<div class="mb-4">

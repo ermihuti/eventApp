@@ -1,4 +1,4 @@
-<h1 class="text-2xl mb-5 text-center text-gray-800">Add a New Location</h1>
+<h1 class="text-2xl mb-5 font-bold text-center text-gray-800">Add a New Location</h1>
 
 <form method="POST" action="?/createLocation" use:enhance 
       class="bg-white rounded-lg p-5 shadow-md max-w-md w-full mx-auto">

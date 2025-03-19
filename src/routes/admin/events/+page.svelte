@@ -8,7 +8,7 @@
 <h1 class="text-2xl mb-5 text-center text-gray-800">Admin Dashboard</h1>
 
 <a href="/admin/events/new" 
-   class="inline-block bg-blue-500 text-white text-lg px-4 py-2 rounded hover:bg-blue-700 transition mb-5">
+   class="inline-block bg-blue-500 text-white font-bold text-lg px-4 py-2 rounded hover:bg-blue-700 transition mb-5">
    Create a New Event
 </a>
 
