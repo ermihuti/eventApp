@@ -4,43 +4,48 @@
 
 <h1 class="text-2xl mb-5 font-bold text-center text-gray-800">Create a New Event</h1>
 
-<form method="POST" action="?/createEvent" class="bg-white rounded-lg p-6 shadow-md max-w-md mx-auto">
+<form method="POST" action="?/createEvent" enctype="multipart/form-data" class="bg-white rounded-lg p-6 shadow-md max-w-md mx-auto">
 	<div class="mb-4">
 		<label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-		<input type="text" id="title" name="title" required 
+		<input type="text" id="title" name="title"  
 		       class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
 		       placeholder="Enter title" />
 	</div>
 
 	<div class="mb-4">
+		<label for="image" class="block text-sm font-medium text-gray-700">Image</label>
+		<input type="file" name="uploadedImage"  class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+	</div>
+
+	<div class="mb-4">
 		<label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-		<textarea id="description" name="description" required 
+		<textarea id="description" name="description"  
 		          class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none h-20" 
 		          placeholder="Enter description"></textarea>
 	</div>
 
 	<div class="mb-4">
 		<label for="url" class="block text-sm font-medium text-gray-700">URL</label>
-		<input type="text" id="url" name="url" required 
+		<input type="text" id="url" name="url"  
 		       class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
 		       placeholder="Enter an URL" />
 	</div>
 
 	<div class="mb-4">
 		<label for="startDate" class="block text-sm font-medium text-gray-700">Start date</label>
-		<input type="date" id="startDate" name="startDate" required 
+		<input type="date" id="startDate" name="startDate"  
 		       class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
 	</div>
 
 	<div class="mb-4">
 		<label for="endDate" class="block text-sm font-medium text-gray-700">End date</label>
-		<input type="date" id="endDate" name="endDate" required 
+		<input type="date" id="endDate" name="endDate"  
 		       class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
 	</div>
 
 	<div class="mb-4">
 		<label for="startTime" class="block text-sm font-medium text-gray-700">Start time</label>
-		<input type="time" id="startTime" name="startTime" required 
+		<input type="time" id="startTime" name="startTime"  
 		       class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
 	</div>
 

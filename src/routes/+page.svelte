@@ -56,6 +56,7 @@
 	{#if filteredEvents.length > 0}
 		{#each filteredEvents as event (event.id)}
 			<div class="bg-white rounded-lg p-4 shadow-lg transition-transform transform hover:-translate-y-1">
+				<img src="{event.image}" alt="uploaded" class="w-64 h-64 object-contain rounded-lg border border-gray-300">
 				<p class="text-gray-700 text-base">
 					<strong class="text-gray-900">ID:</strong> {event.id} |
 					<strong class="text-gray-900">Title:</strong> {event.title} |
